@@ -23,4 +23,13 @@ describe('Item.vue', () => {
 		expect(a.text()).toBe(item.title)
 		expect(a.attributes().href).toBe(item.url)
 		})
-	})
+	test('renders item.author', () => {
+    	const item = {
+      		author: 10
+    	}
+    	const wrapper = shallowMount(Item, {
+      		propsData: { item }
+    	})
+    	expect(wrapper.text()).toContain(item.author)
+  	})
+})
