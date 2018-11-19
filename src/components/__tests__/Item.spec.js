@@ -32,4 +32,13 @@ describe('Item.vue', () => {
     	})
     	expect(wrapper.text()).toContain(item.author)
   	})
+  	test('renders item.score', () => {
+  		const item = {
+  			score: 10
+  		}
+  		const wrapper = shallowMount(Item, {
+  			propsData: {item}
+  		})
+  		expect(wrapper.text()).toContain(item.score)
+  	})
 })
