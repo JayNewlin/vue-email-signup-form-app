@@ -20,6 +20,7 @@ export default {
 	methods: {
 		start() {
 			this.hidden = false
+			this.percent = 0
 		},
 		finish() {
 			this.hidden = true
