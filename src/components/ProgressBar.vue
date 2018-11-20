@@ -1,7 +1,8 @@
 <template>
 	<div
 		:class="{
-		hidden: hidden
+		hidden: hidden,
+		error: error
 		}"
 	:style="{
 	'width': `${percent}%`
@@ -14,12 +15,14 @@ export default {
 	data() {
 		return {
 			hidden: true,
-			percent: 0
+			percent: 0,
+			error: false
 		}
 	},
 	methods: {
 		start() {
 			this.hidden = false
+			this.error = false
 			this.percent = 0
 			this.timer = setInterval(() => {
 				this.percent++
@@ -29,6 +32,10 @@ export default {
 			this.hidden = true
 			this.percent = 100
 			clearInterval(this.timer)
+		},
+		fail () {
+			this.error = true
+			this.percent = 100
 		}
 	}
 }
