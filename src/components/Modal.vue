@@ -1,14 +1,6 @@
 <template>
   <div>
-  	<button
-  		@click="onClose"
-	/>
+  	<button @click="$emit('close-modal')" />
     <slot />
   </div>
 </template>
-
-<script>
-export default {
-	props: ['onClose']
-}
-</script>

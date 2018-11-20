@@ -10,14 +10,9 @@ describe('Modal.vue', () => {
     })
     expect(wrapper.find('span').exists()).toBeTruthy()
   })
-  test('calls onClose when button is clicked', () => {
-  	const onClose = jest.fn()
-  	const wrapper = shallowMount(Modal, {
-  		propsData: {
-  			onClose
-  		}
-  	})
+  test('emits on-close when button is clicked', () => {
+  	const wrapper = shallowMount(Modal)
   	wrapper.find('button').trigger('click')
-  	expect(onClose).toHaveBeenCalled()
+  	expect(wrapper.emitted('close-modal')).toHaveLength(1)
   })
 })
