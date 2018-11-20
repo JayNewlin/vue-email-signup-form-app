@@ -21,6 +21,9 @@ export default {
 		start() {
 			this.hidden = false
 			this.percent = 0
+			this.timer = setInterval(() => {
+				this.percent++
+			}, 100)
 		},
 		finish() {
 			this.hidden = true
