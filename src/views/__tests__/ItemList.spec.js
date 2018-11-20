@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import ItemList from '../ItemList.vue'
-import Item from '../Item.vue'
+import Item from '../../components/Item.vue'
 
 describe('ItemList.vue', () => {
 	test('renders an Item for each item in window.items', () => {
@@ -11,5 +11,13 @@ describe('ItemList.vue', () => {
 		items.wrappers.forEach((wrapper, i) => {
 			expect(wrapper.props().item).toBe(window.items[i])
 		})
+	})
+	test('calls $bar.start on load', () => {
+		const $bar = {
+			start: jest.fn(),
+			finish: () => {}
+		}
+		shallowMount(ItemList, {mocks: { $bar }})
+		expect($bar.start).toHaveBeenCalledTimes(1)
 	})
 })

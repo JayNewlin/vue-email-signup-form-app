@@ -1,14 +1,27 @@
 <template>
-  <item />
+	<div class="item-list">
+		<item 
+		v-for="item in displayItems"
+		:key="item.id"
+		:item="item"
+		/>
+	</div>
 </template>
 
 <script>
 import Item from '../components/Item.vue'
-import api from '../api/api'
 
 export default {
-  components: {
-    Item
-  }
+	components: {
+		Item
+	},
+	data () {
+		return {
+			displayItems: window.items
+		}
+	},
+	beforeMount () {
+		this.$bar.start()
+	}
 }
 </script>
