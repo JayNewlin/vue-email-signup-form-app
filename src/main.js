@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import App from './App'
-import ProgressBar from './components/ProgressBar'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import 'bulma/css/bulma.css'
 
 Vue.config.productionTip = false
+Vue.use(VueAxios, axios)
 
-const bar = new Vue(ProgressBar).$mount()
-Vue.prototype.$bar = bar
-document.body.appendChild(bar.$el)
-
+/* eslint-disable no-new */
 new Vue({
-	el: '#app',
-	render: h => h(App)
+  el: '#app',
+  render: h => h(App)
 })
