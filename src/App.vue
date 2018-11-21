@@ -2,7 +2,7 @@
   <div>
     <Modal
       v-if="displayModal"
-      :onClose="closeModal"
+      @close-modal="closeModal"
     >
       <Form v-on:form-submitted="closeModal" />
     </Modal>
@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Form from './components/Form'
-import Modal from './components/Modal'
+import Form from './components/Form.vue'
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
